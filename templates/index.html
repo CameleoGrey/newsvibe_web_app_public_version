@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head xmlns:og="http://ogp.me/ns#">
+		<meta lang="en-US">
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<title>News Vibe</title>
+
+		<link rel="shortcut icon" href="https://newsvibe.online/newsvibe_shortcut_192.png" sizes="192x192">
+		<link rel="shortcut icon" href="https://newsvibe.online/newsvibe_shortcut_32.png" sizes="32x32">
+		<link rel="shortcut icon" href="https://newsvibe.online/newsvibe_shortcut_16.png" sizes="16x16">
+
+		<meta property="og:title" content="News Vibe">
+		<meta property="og:site_name" content="News Vibe">
+		<meta property="og:description" content="News Vibe is a non-commercial project that saves your time on reading fresh news. Each day it's summarizing thousands of fresh news from hundreds sources. Keep up to date with the latest events in the world with NewsVibe, spending the minimum amount of time and effort.">
+		<meta property="og:url" content="https://newsvibe.online">
+		<meta property="og:locale" content="en-US">
+		<meta property="og:type" content="website">
+
+		<meta name="keywords" content="{{ keywords }}" id="keywords-tag">
+		<link rel="stylesheet" href="{{ url_for("static", filename="./css/style.css") }}">
+		
+		<script type="text/javascript" src="{{ url_for("static", filename = "./js/panel_management.js") }}"> </script>
+		<script type="text/javascript" src="{{ url_for("static", filename = "./js/content_management.js") }}"> </script>
+
+	</head>
+	
+	<body>
+
+		<div id="header">
+			<h1>News Vibe</h1>
+			<span id="header-tooltip"> 
+				News Vibe is a non-commercial project that saves your time on reading fresh news.
+				Each day it's summarizing thousands of fresh news from hundreds sources.
+				Keep up to date with the latest events in the world with NewsVibe, spending the minimum amount of time and effort.
+			</span>
+		</div>
+
+		<div id="news-table">
+
+			<div id="high-blank-row"> </div>
+
+			<div id="summary-panel">
+				<div id="summary-panel-navigation"> 
+					<div id="summary-panel-description"> Summary links </div>
+					<button id="close-summary-list-panel" onclick="closeSummaryListPanel()"></button>
+				</div>
+				<div id="summary-source-link-list">
+					<ol>
+                        {% for link_data in preview_links %}
+						<li><a href={{ link_data[0] }} target="blank"> {{ link_data[1] }} </a></li>
+                        {% endfor %}
+					</ol>
+				</div>
+			</div>
+
+			<div id="topic-description-panel">
+				<div id="high-topics-navigation"> 
+					<button id="open-summary-list-panel" onclick="openSummaryListPanel()"></button>
+					<button id="previous-high-topic-button" onclick="getPreviousHighSummary()"></button>
+					<div id="high-topic-counter">- / -</div>
+					<button id="next-high-topic-button" onclick="getNextHighSummary()"></button>
+					<button id="open-support-panel-button" onclick="openSupportPanel()"></button>
+				</div>
+				<div id="topic-description-text">
+                    <p>Loading content updates...</p>
+                    <p>If you see this message ~5 seconds, update page.</p>
+                    <br>
+                    </p>Today's preview:</p>
+                    {{ global_preview }}
+                </div>
+				<div id="low-topics-navigation"> 
+					<button id="previous-low-topic-button" onclick="getPreviousLowSummary()"></button>
+					<div id="low-topic-counter">- / -</div>
+					<button id="next-low-topic-button" onclick="getNextLowSummary()"></button>
+				</div>
+			</div>
+
+			<div id="support-paper-panel">
+				<div id="support-paper-navigation">
+					<div id="support-paper-description">Support project</div>
+					<div id="close-support-paper-panel" onclick="closeSupportPanel()"></div>
+				</div>
+				<div id="support-message-text">
+					<p>
+						Send a feedback via message inside donate: 
+						<br>
+						0x49c0Df1d562Eb427c63490b8aAE965A987286714 (ETH)
+						<br>
+						<br>
+						Or look for artworks:
+						<br> 
+						<a href="https://opensea.io/AlpertGreen" target="blank">https://opensea.io/AlpertGreen</a>
+						<br>
+						<br>
+					</p>
+
+					<img src="{{ url_for("static", filename="./img/art_sample.jpg") }}" alt="art_sample.jpg" id="artwork-sample">
+				</div>
+			</div>
+
+			<div id="low-blank-row"> </div>
+			
+		</div>
+
+		<div id="footer">
+			<p id="news-analyzed">Fresh news summarized: <span id="news-counter">loading...</span> </p>
+			<p id="sources-analyzed">Sources summarized: <span id="sources-counter">loading...</span> </p>
+			<span id="footer-tooltip"> Last update (UTC): <span id="update-time"> Y-M-D h:m:s </span> </span>
+		</div>
+	
+	</body>
+
+</html>

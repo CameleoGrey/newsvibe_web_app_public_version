@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve newsvibe_web_app
+After=network.target
+ 
+[Service]
+User=newsvibe
+Group=www-data
+WorkingDirectory=/home/newsvibe/newsvibe_web_app/scripts
+Environment="PATH=/home/newsvibe/scripts/newsvibe_env/bin"
+ExecStart=/home/newsvibe/newsvibe_web_app/scripts/newsvibe_env/bin/gunicorn --workers 3 --bind localhost:8000 -m 007 run_server:app
+ 
+[Install]
+WantedBy=multi-user.target

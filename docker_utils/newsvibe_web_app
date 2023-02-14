@@ -1,0 +1,11 @@
+server {
+    listen 8000;
+    server_name localhost;
+    
+	client_max_body_size 20M;
+	
+    location / {
+        include proxy_params;
+        proxy_pass http://localhost:5000;
+    }
+}

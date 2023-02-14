@@ -1,0 +1,867 @@
+
+
+@media only screen and (orientation:  landscape) {
+
+	/**********************************************/
+	/* Global settings  */
+	@font-face {
+	    font-family: 'CyberFall'; 
+	    src: url('../fonts/cyberfall_cyrillic.otf'); 
+	}
+
+	@font-face {
+	    font-family: 'Carlito'; 
+	    src: url('../fonts/Carlito-Regular.ttf'); 
+	}
+
+	:root {
+		--cyber-orange: #fb6b07;
+		--cyber-black: #181818;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+
+		background-color: var(--cyber-black);
+	}
+
+	a:link {
+	  color: var(--cyber-black);
+	}
+
+	a:visited {
+	  color: var(--cyber-orange);
+	}
+
+	a:hover {
+	  color: var(--cyber-orange);
+	}
+
+	a:active {
+	  color: var(--cyber-black);
+	}
+
+	#support-paper-panel a:visited {
+	  color: var(--cyber-black);
+	}
+
+	#support-paper-panel a:hover {
+	  color: var(--cyber-orange);
+	}
+
+	/**********************************************/
+
+	#header {
+		text-align: center;
+		color: var(--cyber-orange);
+		size: 48pt;
+		font-family: "CyberFall";
+
+		background-color: var(--cyber-black);
+
+		height: 5vh;
+		width: 100vw;
+	}
+
+#header-tooltip {
+	font-family: Carlito, serif;;
+	  visibility: hidden;
+	  size: 18pt;
+	  opacity: 1;
+	  background-color: var(--cyber-orange);
+	  color: var(--cyber-black);
+	  text-align: center;
+	  border-radius: 6px;
+	  padding: 5px 0;
+	  position: absolute;
+	  z-index: 999;
+}
+
+#header:hover #header-tooltip {
+	  visibility: visible;
+	}
+
+	/****************************************/
+	/*  news table elements  */
+	#news-table {
+		background-image: url("../img/site_background_2.jpg");
+		background-repeat: no-repeat;
+	  	background-size: cover;
+	  	background-position: bottom;
+	  	background-color: var(--cyber-black);
+		z-index: -1;
+		width: 100vw;
+		height: 86vh;
+
+		display: grid;
+	  	grid-template-columns: 5% 28.3% 2.5% 28.3% 2.5% 28.3% 5%;
+	  	grid-template-rows: 10% 10% 60% 10% 10%;
+	}
+
+	#high-blank-row {
+		grid-row: 1;
+		grid-column: 1 / span 5;
+	}
+
+	#low-blank-row {
+		grid-row: 5;
+		grid-column: 1 / span 5;
+	}
+	/****************************************/
+
+	/****************************************/
+	/*  summary panel elements  */
+	#summary-panel {
+
+		background-color: #FFFFFF;
+
+		grid-row: 2 / span 3;
+		grid-column: 2;
+
+		display: grid;
+		grid-template-rows: 10% 90%;
+
+		visibility: hidden;
+	}
+
+	#summary-panel-navigation {
+		height: 80;
+		background-color: var(--cyber-orange);
+
+		display: grid;
+		grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#summary-panel-description {
+		font-family: "CyberFall";
+		font-size: 18pt;
+		text-align: center;
+
+		display: grid;
+		grid-row: 2;
+		grid-column: 3 / span 15;
+	}
+
+	#close-summary-list-panel {
+		background: url(../img/eye-slash.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 37px;
+		width: 37px;
+
+		grid-column: 18;
+		grid-row: 2;
+	}
+
+	#summary-source-link-list {
+		padding-top: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 20px;
+
+	  	overflow: auto;
+	  	font-family: Carlito, serif;
+	  	font-size: 12pt;
+
+	  	display: grid;
+	  	grid-row: 2;
+	}
+
+	/****************************************/
+
+	/****************************************/
+	/*  topic description elements  */
+	#topic-description-panel {
+
+		background-color: #FFFFFF;
+
+		grid-row: 2 / span 3;
+		grid-column: 4;
+
+		display: grid;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#high-topics-navigation {
+		height: 80;
+		background-color: var(--cyber-orange);
+
+		display: grid;
+		grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#open-summary-list-panel {
+		background: url(../img/eye.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 37px;
+		width: 37px;
+
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	#previous-high-topic-button {
+		background: url(../img/circle-arrow-left.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 37px;
+		width: 37px;
+
+		grid-column: 6;
+		grid-row: 2;
+	}
+
+	#high-topic-counter {
+		font-family: "CyberFall";
+		font-size: 18pt;
+		text-align: center;
+
+		grid-column: 7 / span 8;
+		grid-row: 2;
+	}
+
+	#next-high-topic-button {
+		background: url(../img/circle-arrow-right.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 37px;
+		width: 37px;
+
+		grid-column: 14;
+		grid-row: 2;
+	}
+
+	#open-support-panel-button {
+		background: url(../img/gem.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 37px;
+		width: 37px;
+
+		grid-column: 18;
+		grid-row: 2;
+	}
+
+	#topic-description-text {
+		padding-top: 50px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 50px;
+
+	  	overflow: auto;
+	  	font-family: Carlito, serif;
+	  	font-size: 14pt;
+
+	  	color: var(--cyber-black);
+	}
+
+	#low-topics-navigation {
+		height: 80;
+		background-color: var(--cyber-orange);
+
+		text-align: center;
+		font-family: "CyberFall";
+		font-size: 22pt;
+
+		display: grid;
+		grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#previous-low-topic-button {
+		background: url(../img/circle-arrow-left.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 37px;
+		width: 37px;
+
+		grid-column: 6;
+		grid-row: 2;
+	}
+
+	#low-topic-counter {
+		font-family: "CyberFall";
+		font-size: 18pt;
+		text-align: center;
+
+		grid-column: 7 / span 8;
+		grid-row: 2;
+	}
+
+	#next-low-topic-button {
+		background: url(../img/circle-arrow-right.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 37px;
+		width: 37px;
+
+		grid-column: 14;
+		grid-row: 2;
+	}
+	/***************************************/
+
+	/***************************************/
+	/* support elements */
+	#support-paper-panel {
+
+		background-color: #FFFFFF;
+
+		grid-row: 2 / span 3;
+		grid-column: 6;
+
+		display: grid;
+		grid-template-rows: 10% 90%;
+
+		visibility: hidden;
+
+		transition: opacity 0.5s;
+	}
+
+	#support-paper-panel.toggle-panel {
+		opacity: 0;
+	}
+
+	#support-paper-navigation {
+		height: 80;
+		background-color: var(--cyber-orange);
+
+		display: grid;
+		grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#support-paper-description {
+		font-family: "CyberFall";
+		font-size: 18pt;
+		text-align: center;
+
+		display: grid;
+		grid-row: 2;
+		grid-column: 4 / span 15;
+	}
+
+	#close-support-paper-panel {
+		background: url(../img/handshake.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 37px;
+		width: 37px;
+
+		display: grid;
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	#support-message-text {
+		padding-top: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 20px;
+
+		font-family: Carlito, serif;
+		font-size: 16pt;
+	  	overflow-x: auto;
+	  	overflow-y: auto;
+		word-break: break-all;
+
+	  	display: grid;
+	  	grid-row: 2;
+	}
+
+	#artwork-sample {
+		max-width: 70%;
+		height: auto;
+
+		display: block;
+		margin-left: auto;
+		margin-top: auto;
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+
+	/***************************************/
+
+	#footer {
+		font-family: "CyberFall";
+		text-align: center;
+		background-color: var(--cyber-black);
+		color: var(--cyber-orange);
+		font-size: 16pt;
+		height: 5vh;
+		width: 100vw;
+	}
+
+	#news-analyzed {
+		margin: -20pt;
+	}
+
+	#sources-analyzed {
+		margin: 20pt;
+	}
+
+	#footer-tooltip {
+	font-family: Carlito, serif;;
+	  visibility: hidden;
+	  size: 18pt;
+	  opacity: 1;
+	  background-color: var(--cyber-orange);
+	  color: var(--cyber-black);
+	  text-align: center;
+	  border-radius: 6px;
+	  padding: 5px 0;
+	  margin-top: -12vh;
+	  position: absolute;
+	  z-index: 999;
+}
+
+	#footer:hover #footer-tooltip {
+	  visibility: visible;
+	}
+}
+
+/***************************************************/
+/***************************************************/
+@media only screen and (orientation:  portrait) {
+
+	/**********************************************/
+	/* Global settings  */
+	@font-face {
+	    font-family: 'CyberFall'; 
+	    src: url('../fonts/cyberfall_cyrillic.otf'); 
+	}
+
+	:root {
+		--cyber-orange: #fb6b07;
+		--cyber-black: #181818;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+
+		background-color: var(--cyber-black);
+	}
+
+	a:link {
+	  color: var(--cyber-black);
+	}
+
+	a:visited {
+	  color: var(--cyber-orange);
+	}
+
+	a:hover {
+	  color: var(--cyber-orange);
+	}
+
+	a:active {
+	  color: var(--cyber-black);
+	}
+
+	#support-paper-panel a:visited {
+	  color: var(--cyber-black);
+	}
+
+	#support-paper-panel a:hover {
+	  color: var(--cyber-orange);
+	}
+
+	/**********************************************/
+
+	#header {
+		text-align: center;
+		color: var(--cyber-orange);
+		font-size: 2vh;
+		font-family: "CyberFall";
+
+		background-color: var(--cyber-black);
+
+		height: 5vh;
+		width: 100vw;
+	}
+
+	#header-tooltip {
+	font-family: Carlito, serif;;
+	  visibility: hidden;
+	  size: 18pt;
+	  opacity: 1;
+	  background-color: var(--cyber-orange);
+	  color: var(--cyber-black);
+	  text-align: center;
+	  border-radius: 6px;
+	  padding: 5px 0;
+	  position: absolute;
+	  z-index: 999;
+}
+
+#header:hover #header-tooltip {
+	  visibility: visible;
+	}
+
+	/****************************************/
+	/*  news table elements  */
+	#news-table {
+		background-image: url("../img/site_background_2.jpg");
+		background-repeat: no-repeat;
+	  	background-size: cover;
+	  	background-position: center;
+	  	background-color: var(--cyber-black);
+		z-index: -1;
+		width: 100vw;
+		height: 86vh;
+
+		display: grid;
+	  	grid-template-columns: 5% 90% 5%;
+	  	grid-template-rows: 10% 10% 60% 10% 10%;
+	}
+
+	#high-blank-row {
+		grid-row: 1;
+		grid-column: 1 / span 5;
+	}
+
+	#low-blank-row {
+		grid-row: 5;
+		grid-column: 1 / span 5;
+	}
+	/****************************************/
+
+	/****************************************/
+	/*  summary panel elements  */
+	#summary-panel {
+
+		background-color: #FFFFFF;
+
+		grid-row: 2 / span 3;
+		grid-column: 2;
+		z-index: 2;
+
+		display: grid;
+		grid-template-rows: 10% 90%;
+
+		visibility: hidden;
+	}
+
+	#summary-panel-navigation {
+		height: 80;
+		background-color: var(--cyber-orange);
+
+		display: grid;
+		grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#summary-panel-description {
+		font-family: "CyberFall";
+		font-size: 3vh;
+		text-align: center;
+
+		display: grid;
+		grid-row: 2;
+		grid-column: 3 / span 15;
+	}
+
+	#close-summary-list-panel {
+		background: url(../img/eye-slash.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 200%;
+		width: 200%;
+
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	#summary-source-link-list {
+		padding-top: 20px;
+		padding-left: 40px;
+		padding-right: 10px;
+		padding-bottom: 20px;
+
+	  	overflow: auto;
+	  	font-family: Carlito, serif;
+	  	font-size: 12pt;
+
+	  	display: grid;
+	  	grid-row: 2;
+	}
+
+	/****************************************/
+
+	/****************************************/
+	/*  topic description elements  */
+	#topic-description-panel {
+
+		background-color: #FFFFFF;
+
+		grid-row: 2 / span 3;
+		grid-column: 2;
+		z-index: 1;
+
+		display: grid;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#high-topics-navigation {
+		height: 80;
+		background-color: var(--cyber-orange);
+
+		display: grid;
+		grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#open-summary-list-panel {
+		background: url(../img/eye.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 200%;
+		width: 200%;
+
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	#previous-high-topic-button {
+		background: url(../img/circle-arrow-left.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 200%;
+		width: 200%;
+
+		grid-column: 6;
+		grid-row: 2;
+	}
+
+	#high-topic-counter {
+		font-family: "CyberFall";
+		font-size: 3vh;
+		text-align: center;
+
+		grid-column: 7 / span 8;
+		grid-row: 2;
+	}
+
+	#next-high-topic-button {
+		background: url(../img/circle-arrow-right.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 200%;
+		width: 200%;
+
+		grid-column: 14;
+		grid-row: 2;
+	}
+
+	#open-support-panel-button {
+		background: url(../img/gem.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 200%;
+		width: 200%;
+
+		grid-column: 18;
+		grid-row: 2;
+	}
+
+	#topic-description-text {
+		padding-top: 50px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 50px;
+
+	  	overflow: auto;
+	  	font-family: Carlito, serif;
+	  	font-size: 14pt;
+
+	  	color: var(--cyber-black);
+	}
+
+	#low-topics-navigation {
+		height: 80;
+		background-color: var(--cyber-orange);
+
+		text-align: center;
+		font-family: "CyberFall";
+		font-size: 3vh;
+
+		display: grid;
+		grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#previous-low-topic-button {
+		background: url(../img/circle-arrow-left.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 200%;
+		width: 200%;
+
+		grid-column: 6;
+		grid-row: 2;
+	}
+
+	#low-topic-counter {
+		font-family: "CyberFall";
+		font-size: 3vh;
+		text-align: center;
+
+		grid-column: 7 / span 8;
+		grid-row: 2;
+	}
+
+	#next-low-topic-button {
+		background: url(../img/circle-arrow-right.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 200%;
+		width: 200%;
+
+		grid-column: 14;
+		grid-row: 2;
+	}
+	/***************************************/
+
+	/***************************************/
+	/* support elements */
+	#support-paper-panel {
+
+		background-color: #FFFFFF;
+
+		grid-row: 2 / span 3;
+		grid-column: 2;
+		z-index: 3;
+
+		display: grid;
+		grid-template-rows: 10% 90%;
+
+		visibility: hidden;
+
+		transition: opacity 0.5s;
+	}
+
+	#support-paper-panel.toggle-panel {
+		opacity: 0;
+	}
+
+	#support-paper-navigation {
+		height: 80;
+		background-color: var(--cyber-orange);
+
+		display: grid;
+		grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+		grid-template-rows: 10% 80% 10%;
+	}
+
+	#support-paper-description {
+		font-family: "CyberFall";
+		font-size: 3vh;
+		text-align: center;
+
+		display: grid;
+		grid-row: 2;
+		grid-column: 4 / span 15;
+	}
+
+	#close-support-paper-panel {
+		background: url(../img/handshake.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		height: 200%;
+		width: 200%;
+
+		display: grid;
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	#support-message-text {
+		padding-top: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 20px;
+
+		font-family: Carlito, serif;
+		font-size: 18pt;
+	  	overflow-x: auto;
+	  	overflow-y: auto;
+		word-break: break-all;
+
+	  	display: grid;
+	  	grid-row: 2;
+	}
+
+	#artwork-sample {
+
+		display: grid;
+
+		max-width: 70%;
+		height: auto;
+
+		position: relative;
+
+		margin-left: auto;
+		margin-top: auto;
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+
+	/***************************************/
+
+	#footer {
+		font-family: "CyberFall";
+		text-align: center;
+		background-color: var(--cyber-black);
+		color: var(--cyber-orange);
+		font-size: 2vh;
+		height: 5vh;
+		width: 100vw;
+	}
+
+	#news-analyzed {
+		margin: -20pt;
+	}
+
+	#sources-analyzed {
+		margin: 20pt;
+	}
+
+	#footer-tooltip {
+	font-family: Carlito, serif;;
+	  visibility: hidden;
+	  size: 18pt;
+	  opacity: 1;
+	  background-color: var(--cyber-orange);
+	  color: var(--cyber-black);
+	  text-align: center;
+	  border-radius: 6px;
+	  padding: 5px 0;
+	  margin-top: -12vh;
+	  position: absolute;
+	  z-index: 999;
+}
+
+	#footer:hover #footer-tooltip {
+	  visibility: visible;
+	}
+}

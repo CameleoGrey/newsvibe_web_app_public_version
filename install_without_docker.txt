@@ -1,0 +1,87 @@
+
+ubuntu 22.04
+
+// vps settings
+ssh root@vps-ip
+adduser newsvibe
+usermod -aG sudo newsvibe
+su newsvibe
+ssh newsvibe@vps-ip
+
+//app settings
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install python3.10
+sudo apt-get install python3.10-venv
+
+cd newsvibe_web_app/scripts
+python3 -m venv newsvibe_env
+source newsvibe_env/bin/activate
+
+pip install wheel Flask jinja2 flask_cors gunicorn
+
+mkdir ~/newsvibe_web_app
+copy files into home/newsvibe
+
+cd newsvibe_web_app/scripts
+python3 change_fresh_content_url.py --host newsvibe.online --port ""
+gunicorn --bind 0.0.0.0:5000 run_server:app
+
+
+
+/////////////////////////////////////////////////////////////////////
+//systemd
+deactivate
+sudo nano /etc/systemd/system/newsvibe_web_app.service
+/*inside file*/
+///////////////////////////////
+[Unit]
+Description=Gunicorn instance to serve newsvibe_web_app
+After=network.target
+ 
+[Service]
+User=newsvibe
+Group=www-data
+WorkingDirectory=/home/newsvibe/newsvibe_web_app/scripts
+Environment="PATH=/home/newsvibe/scripts/newsvibe_env/bin"
+ExecStart=/home/newsvibe/newsvibe_web_app/scripts/newsvibe_env/bin/gunicorn --workers 3 --bind localhost:8000 -m 007 run_server:app
+ 
+[Install]
+WantedBy=multi-user.target
+//////////////////////////
+sudo systemctl start newsvibe_web_app
+sudo systemctl enable newsvibe_web_app
+sudo systemctl status newsvibe_web_app
+curl localhost:8000
+
+
+
+
+//////////////////////////////////////////////////////
+//nginx
+sudo apt install nginx
+nginx -v
+sudo nano /etc/nginx/sites-available/newsvibe_web_app
+/*inside file*/
+//////////////////////////
+server {
+    listen 80;
+    server_name newsvibe.online;
+ 
+    location / {
+        include proxy_params;
+        proxy_pass http://localhost:8000;
+    }
+}
+//////////////////////////
+sudo ln -s /etc/nginx/sites-available/newsvibe_web_app /etc/nginx/sites-enabled
+sudo nginx -t
+sudo systemctl restart nginx
+
+
+
+//ssl
+sudo apt install python3-certbot-nginx
+sudo certbot --nginx -d newsvibe.online
+change to https inside content_management.js
